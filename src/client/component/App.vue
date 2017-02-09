@@ -12,6 +12,7 @@
 <script lang="ts">
 import * as Vue from 'vue';
 import Component from 'vue-class-component';
+
 @Component({
   props: {
     propMessage: String,
@@ -19,18 +20,23 @@ import Component from 'vue-class-component';
 })
 export default class App extends Vue {
   propMessage: string
+
   // inital data
   msg: number = 123
+
   // use prop values for initial data
   helloMsg: string = `Hello,${this.propMessage}`
+
   // lifecycle hook
   mounted() {
     this.greet();
   }
+
   // computed
   get computedMsg() {
     return `computed${this.msg}`;
   }
+
   // method
   greet() {
     console.log(`greeting:${this.msg}`);

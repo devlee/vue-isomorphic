@@ -5,3 +5,5 @@ build
 .vscode
 
 .awcache
+
+dist

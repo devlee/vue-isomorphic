@@ -1,5 +1,3 @@
-import webpack from 'webpack';
-
 import path from 'path';
 
 /**
@@ -20,22 +18,21 @@ const base = {
    */
   context: baseDir,
   entry: {
-    client: './src/client'
+    client: './src/client',
   },
   output: {
     path: path.resolve(baseDir, './dist'),
-    filename: '[name].js',
-    chunkFilename: '[chunkhash].js'
+    filename: '[name]-[chunkhash].js',
   },
   resolve: {
     extensions: [
       '.ts',
-      '.vue'
+      '.vue',
     ],
-    modules:[
-			path.resolve(baseDir, './src'),
-			'node_modules'
-		]
+    modules: [
+      path.resolve(baseDir, './src'),
+      'node_modules',
+    ],
   },
   module: {
     rules: [
@@ -43,15 +40,15 @@ const base = {
         test: /\.ts$/,
         use: [
           {
-            loader: 'babel-loader'
+            loader: 'babel-loader',
           },
           {
             loader: 'ts-loader',
             options: {
-              appendTsSuffixTo: [/\.vue$/]
-            }
-          }
-        ]
+              appendTsSuffixTo: [/\.vue$/],
+            },
+          },
+        ],
       },
       {
         test: /\.vue$/,
@@ -59,13 +56,13 @@ const base = {
           {
             loader: 'vue-loader',
             options: {
-              esModule: true
-            }
-          }
-        ]
-      }
-    ]
-  }
+              esModule: true,
+            },
+          },
+        ],
+      },
+    ],
+  },
 };
 
 export default base;
