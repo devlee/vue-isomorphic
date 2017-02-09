@@ -14,8 +14,13 @@
     "strictNullChecks": true,
     "removeComments": true,
     "suppressImplicitAnyIndexErrors": true,
+    "allowJs": true,
     "types": [
-      "vue-typescript-import-dts"
+      "vue-typescript-import-dts",
+      "@types/service_worker_api",
+      "@types/koa",
+      "@types/koa-router",
+      "@types/lru-cache"
     ]
   },
   "compileOnSave": false

@@ -1,45 +1,31 @@
 <template>
-  <div>
-    <input v-model="msg">
-    <p>prop: {{propMessage}}</p>
-    <p>msg: {{msg}}</p>
-    <p>helloMsg: {{helloMsg}}</p>
-    <p>computed msg: {{computedMsg}}</p>
-    <button @click="greet">Greet</button>
+  <div id="app" :class="$style.app">
+    <header :class="$style.header">
+      <nav :class="$style.nav">
+        <router-link to="/" exact>
+        </router-link>
+      </nav>
+    </header>
+    <transition name="fade" mode="out-in">
+      <router-view :class="$style.view"></router-view>
+    </transition>
   </div>
 </template>
 
-<script lang="ts">
-import * as Vue from 'vue';
-import Component from 'vue-class-component';
-
-@Component({
-  props: {
-    propMessage: String,
-  },
-})
-export default class App extends Vue {
-  propMessage: string
-
-  // inital data
-  msg: number = 123
-
-  // use prop values for initial data
-  helloMsg: string = `Hello,${this.propMessage}`
-
-  // lifecycle hook
-  mounted() {
-    this.greet();
+<style lang="postcss" module>
+  .app {
+    color: red;
   }
-
-  // computed
-  get computedMsg() {
-    return `computed${this.msg}`;
+  .header {
+    color: aliceblue;
   }
-
-  // method
-  greet() {
-    console.log(`greeting:${this.msg}`);
+  .nav {
+    color: antiquewhite;
   }
-}
-</script>
+  .logo {
+    color: aqua;
+  }
+  .view {
+    color: aquamarine;
+  }
+</style>

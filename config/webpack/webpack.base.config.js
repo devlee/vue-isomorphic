@@ -1,33 +1,50 @@
 import path from 'path';
 
+import vueLoaderConfig from './vue.loader.config';
+
 /**
  * baseDir
  *
  * `__dirname` is the releative path of this file,
  * so we use path.resolve to format the releative path
  * `__dirname + '../..'` to be an absolute path,
- * it is the root directory of this project
-*/
+ * it is the root directory of this project.
+ */
 const baseDir = path.resolve(__dirname, '../..');
 
-const base = {
+/**
+ * baseConfig
+ *
+ * It is the base config of webpack.
+ */
+const baseConfig = {
   cache: true,
   /**
    * context
+   *
    * The absolute path of base directory.
    */
   context: baseDir,
+  devtool: '#source-map',
   entry: {
-    client: './src/client',
+    app: './src/client/index.ts',
+    vendor: [
+      'vue',
+    ],
   },
   output: {
     path: path.resolve(baseDir, './dist'),
+    publicPath: '/dist/',
     filename: '[name]-[chunkhash].js',
   },
   resolve: {
+    alias: {
+      public: path.resolve(baseDir, './public'),
+    },
     extensions: [
       '.ts',
       '.vue',
+      '.js',
     ],
     modules: [
       path.resolve(baseDir, './src'),
@@ -51,18 +68,33 @@ const base = {
         ],
       },
       {
+        enforce: 'pre',
+        test: /.vue$/,
+        loader: 'eslint-loader',
+        exclude: /node_modules/,
+      },
+      {
         test: /\.vue$/,
         use: [
           {
             loader: 'vue-loader',
-            options: {
-              esModule: true,
-            },
+            options: vueLoaderConfig,
           },
         ],
       },
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name: '[name].[ext]?[hash]',
+        },
+      },
     ],
+  },
+  performance: {
+    hints: process.env.NODE_ENV === 'production' ? 'warning' : false,
   },
 };
 
-export default base;
+export default baseConfig;
