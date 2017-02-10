@@ -1,11 +1,12 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import path from 'path';
 import webpack from 'webpack';
 import MFS from 'memory-fs';
-import webpackDevMiddleware from 'koa-webpack-dev-middleware';
-import webpackHotMiddleware from 'koa-webpack-hot-middleware';
 
 import clientConfig from './webpack.client.config.babel';
 import serverConfig from './webpack.server.config.babel';
+import webpackDevMiddleware from './koa2/dev';
+import webpackHotMiddleware from './koa2/hot';
 
 export default function setupDevServer(app, opts) {
   // modify client config to work with hot middleware
@@ -35,7 +36,7 @@ export default function setupDevServer(app, opts) {
   });
 
   // hot middleware
-  app.use(require('./koa2/hot')(clientCompiler));
+  app.use(webpackHotMiddleware(clientCompiler));
 
   // watch and update server renderer
   const serverCompiler = webpack(serverConfig);

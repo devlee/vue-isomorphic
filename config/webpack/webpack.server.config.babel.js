@@ -1,7 +1,10 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import webpack from 'webpack';
 import nodeExternals from 'webpack-node-externals';
 
 import baseConfig from './webpack.base.config';
+
+const NODE_ENV = JSON.stringify(process.env.NODE_ENV || 'development');
 
 module.exports = Object.assign({}, baseConfig, {
   target: 'node',
@@ -14,7 +17,7 @@ module.exports = Object.assign({}, baseConfig, {
   externals: [nodeExternals()],
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+      'process.env.NODE_ENV': NODE_ENV,
       'process.env.VUE_ENV': '"server"',
     }),
   ],

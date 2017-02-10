@@ -1,6 +1,6 @@
 <template>
   <div>
-    home page
+    <span>home page12 {{a}}</span>
   </div>
 </template>
 

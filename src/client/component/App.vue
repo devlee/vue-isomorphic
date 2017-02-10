@@ -12,20 +12,8 @@
   </div>
 </template>
 
-<style lang="postcss" module>
+<style module>
   .app {
     color: red;
-  }
-  .header {
-    color: aliceblue;
-  }
-  .nav {
-    color: antiquewhite;
-  }
-  .logo {
-    color: aqua;
-  }
-  .view {
-    color: aquamarine;
   }
 </style>

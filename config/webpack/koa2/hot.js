@@ -1,21 +1,20 @@
-'use strict'
+/* eslint-disable import/no-extraneous-dependencies */
+import hotMiddleware from 'webpack-hot-middleware';
+import { PassThrough } from 'stream';
 
-const hotMiddleware = require('webpack-hot-middleware')
-const PassThrough = require('stream').PassThrough;
+export default (compiler, opts) => {
+  const expressMiddleware = hotMiddleware(compiler, opts);
 
-
-module.exports = (compiler, opts) => {
-  const expressMiddleware = hotMiddleware(compiler, opts)
   return (ctx, next) => {
-    let stream = new PassThrough()
-    ctx.body = stream
+    const stream = new PassThrough();
+    /* eslint-disable no-param-reassign */
+    ctx.body = stream;
     return expressMiddleware(ctx.req, {
       write: stream.write.bind(stream),
       writeHead: (state, headers) => {
-        ctx.state = state
-        ctx.set(headers)
-      }
-    },next)
-    // return next();
-  }
-}
+        ctx.state = state;
+        ctx.set(headers);
+      },
+    }, next);
+  };
+};

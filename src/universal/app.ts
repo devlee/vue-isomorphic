@@ -2,8 +2,8 @@ import * as Vue from 'vue';
 import { sync } from 'vuex-router-sync';
 
 import App from '../client/component/App.vue';
-import router from '../client/router/index';
-import store from '../client/store/index';
+import router from '../client/router';
+import store from '../client/store';
 
 // sync the router with the vuex store.
 // this registers `store.state.route`

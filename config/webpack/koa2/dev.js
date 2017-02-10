@@ -1,20 +1,24 @@
-'use strict'
+/* eslint-disable import/no-extraneous-dependencies */
+import devMiddleware from 'webpack-dev-middleware';
 
+export default (compiler, opts) => {
+  const expressMiddleware = devMiddleware(compiler, opts);
 
-const devMiddleware = require('webpack-dev-middleware')
-
-module.exports = (compiler, opts) => {
-  const expressMiddleware = devMiddleware(compiler, opts)
-  return (ctx, next) => {
+  function koaMiddleware(ctx, next) {
+    /* eslint-disable no-param-reassign */
     return expressMiddleware(ctx.req, {
       end: (content) => {
-        ctx.body = content
+        ctx.body = content;
       },
       setHeader: (name, value) => {
-        ctx.headers[name] = value
-      }
-    },next)
-    
-    // return next();
+        ctx.headers[name] = value;
+      },
+    }, next);
   }
-}
+
+  Object.keys(expressMiddleware).forEach((p) => {
+    koaMiddleware[p] = expressMiddleware[p];
+  });
+
+  return koaMiddleware;
+};

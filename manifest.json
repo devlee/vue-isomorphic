@@ -1,0 +1,13 @@
+{
+  "name": "Vue Isomorphic",
+  "short_name": "Vue lite",
+  "icons": [{
+      "src": "/public/logo-400.png",
+      "sizes": "400x400",
+      "type": "image/png"
+    }],
+  "start_url": "/",
+  "background_color": "#f2f3f5",
+  "display": "standalone",
+  "theme_color": "#f60"
+}

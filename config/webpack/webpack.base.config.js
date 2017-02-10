@@ -29,13 +29,17 @@ const baseConfig = {
   entry: {
     app: './src/client/index.ts',
     vendor: [
+      'es6-promise',
       'vue',
+      'vue-router',
+      'vuex',
+      'vuex-router-sync',
     ],
   },
   output: {
     path: path.resolve(baseDir, './dist'),
     publicPath: '/dist/',
-    filename: '[name]-[chunkhash].js',
+    filename: '[name].[chunkhash].js',
   },
   resolve: {
     alias: {
@@ -52,6 +56,7 @@ const baseConfig = {
     ],
   },
   module: {
+    noParse: /es6-promise\.js$/,
     rules: [
       {
         test: /\.ts$/,

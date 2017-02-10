@@ -7,3 +7,7 @@ build
 .awcache
 
 dist
+
+.log
+
+.err
