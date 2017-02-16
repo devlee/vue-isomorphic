@@ -12,7 +12,7 @@
   </div>
 </template>
 
-<style module>
+<style lang="postcss" module>
   .app {
     color: red;
   }

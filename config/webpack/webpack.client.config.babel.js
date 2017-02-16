@@ -28,16 +28,27 @@ const clientConfig = Object.assign({}, baseConfig, {
 });
 
 if (process.env.NODE_ENV === 'production') {
-  // vueLoaderConfig.loaders = {
-  //   css: ExtractTextPlugin.extract({
-  //     loader: 'css-loader',
-  //     fallbackLoader: 'vue-style-loader',
-  //   }),
-  //   postcss: ExtractTextPlugin.extract({
-  //     loader: 'css-loader!postcss-loader',
-  //     fallbackLoader: 'vue-style-loader',
-  //   }),
-  // };
+  vueLoaderConfig.loaders = {
+    css: ExtractTextPlugin.extract({
+      use: [
+        {
+          loader: 'css-loader',
+        },
+      ],
+      fallback: 'vue-style-loader',
+    }),
+    postcss: ExtractTextPlugin.extract({
+      use: [
+        {
+          loader: 'css-loader',
+        },
+        {
+          loader: 'postcss-loader',
+        },
+      ],
+      fallback: 'vue-style-loader',
+    }),
+  };
 
   clientConfig.plugins.push(
     new ExtractTextPlugin('styles.[hash].css'),
