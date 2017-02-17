@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon server",
-    "start": "cross-env NODE_ENV=production node server",
+    "start": "cross-env NODE_ENV=production nodemon server",
     "build": "rimraf dist && npm run build:client && npm run build:server",
     "build:client": "cross-env NODE_ENV=production webpack --config config/webpack/webpack.client.config.babel.js --progress --hide-modules",
     "build:server": "cross-env NODE_ENV=production webpack --config config/webpack/webpack.server.config.babel.js --progress --hide-modules",
@@ -64,7 +64,6 @@
     "postcss-loader": "^1.2.2",
     "raw-loader": "^0.5.1",
     "rimraf": "^2.5.4",
-    "style-loader": "^0.13.1",
     "sw-precache-webpack-plugin": "^0.9.0",
     "ts-loader": "^2.0.0",
     "tslint": "^4.4.2",
