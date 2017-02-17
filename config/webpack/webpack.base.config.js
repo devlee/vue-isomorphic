@@ -1,4 +1,5 @@
 import path from 'path';
+import webpack from 'webpack';
 
 import vueLoaderConfig from './vue.loader.config';
 
@@ -84,6 +85,31 @@ const baseConfig = {
           {
             loader: 'vue-loader',
             options: vueLoaderConfig,
+          },
+        ],
+      },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'vue-style-loader',
+          },
+          {
+            loader: 'css-loader',
+          },
+        ],
+      },
+      {
+        test: /\.pcss$/,
+        use: [
+          {
+            loader: 'vue-style-loader',
+          },
+          {
+            loader: 'css-loader',
+          },
+          {
+            loader: 'postcss-loader',
           },
         ],
       },

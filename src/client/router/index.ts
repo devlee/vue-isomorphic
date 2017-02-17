@@ -1,13 +1,15 @@
 import * as Vue from 'vue';
 import * as Router from 'vue-router';
 
-Vue.use(Router);
+import AboutPageView from '../container/AboutPageView.vue';
+import HomePageView from '../container/HomePageView.vue';
 
-import HomePageView from '../component/HomePageView.vue';
+Vue.use(Router);
 
 export default new Router({
   mode: 'history',
   routes: [
     { path: '/', component: HomePageView },
+    { path: '/about', component: AboutPageView },
   ],
 });

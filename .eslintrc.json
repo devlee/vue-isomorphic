@@ -41,5 +41,6 @@
   ],
   "plugins": ["vue"],
   "rules": {
+    "no-param-reassign": "off"
   }
 }
