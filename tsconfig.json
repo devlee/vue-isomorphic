@@ -19,7 +19,8 @@
       "vue-typescript-import-dts",
       "@types/koa",
       "@types/koa-router",
-      "@types/lru-cache"
+      "@types/lru-cache",
+      "@types/isomorphic-fetch"
     ]
   },
   "compileOnSave": false
