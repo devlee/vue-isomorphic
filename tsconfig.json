@@ -10,14 +10,13 @@
     "isolatedModules": false,
     "experimentalDecorators": true,
     "noImplicitAny": true,
-    "noImplicitThis": true,
+    "noImplicitThis": false,
     "strictNullChecks": true,
     "removeComments": true,
     "suppressImplicitAnyIndexErrors": true,
     "allowJs": true,
     "types": [
       "vue-typescript-import-dts",
-      "@types/service_worker_api",
       "@types/koa",
       "@types/koa-router",
       "@types/lru-cache"

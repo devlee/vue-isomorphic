@@ -59,7 +59,7 @@
     "no-eval": true,
     "no-internal-module": true,
     "no-require-imports": true,
-    "no-string-literal": true,
+    "no-string-literal": false,
     "no-switch-case-fall-through": true,
     "trailing-comma": [true, {
       "singleline": "never",

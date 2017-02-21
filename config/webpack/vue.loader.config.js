@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import cssnext from 'postcss-cssnext';
-
 import atImport from 'postcss-import';
+import nested from 'postcss-nested';
 
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -17,5 +17,6 @@ export default {
   postcss: [
     atImport(),
     cssnext(),
+    nested(),
   ],
 };

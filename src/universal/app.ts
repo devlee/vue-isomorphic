@@ -1,3 +1,6 @@
+// tslint:disable-next-line no-reference
+/// <reference path="../../config/@types/index.d.ts" />
+
 import * as Vue from 'vue';
 import { sync } from 'vuex-router-sync';
 

@@ -41,6 +41,7 @@
   ],
   "plugins": ["vue"],
   "rules": {
-    "no-param-reassign": "off"
+    "no-param-reassign": "off",
+    "no-console": ["warn", { "allow": ["warn", "error"] }]
   }
 }

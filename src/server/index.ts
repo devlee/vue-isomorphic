@@ -25,11 +25,19 @@ export default (context: any) => {
   // A preFetch hook dispatches a store action and returns a Promise,
   // which is resolved when the action is complete and store state has been
   // updated.
-  return Promise.all(matchedComponents.map((component: any) => {
+  let tasks: Function[] = [];
+
+  if ('preFetch' in app.$options) {
+    tasks = tasks.concat(app.$options['preFetch'](store));
+  }
+
+  matchedComponents.map((component: any) => {
     if (component.preFetch) {
-      return component.preFetch(store);
+      tasks = tasks.concat(component.preFetch(store));
     }
-  })).then(() => {
+  });
+
+  return Promise.all(tasks).then(() => {
     if (s) {
       // tslint:disable-next-line:no-unused-expression
       isDev && console.log(`data pre-fetch: ${Date.now() - s}ms`);

@@ -1,5 +1,4 @@
 import path from 'path';
-import webpack from 'webpack';
 
 import vueLoaderConfig from './vue.loader.config';
 
@@ -45,6 +44,7 @@ const baseConfig = {
   resolve: {
     alias: {
       public: path.resolve(baseDir, './public'),
+      'normalize.css': path.resolve(baseDir, './node_modules/normalize.css/normalize.css'),
     },
     extensions: [
       '.ts',

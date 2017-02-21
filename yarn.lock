@@ -40,6 +40,10 @@
     "@types/keygrip" "*"
     "@types/node" "*"
 
+"@types/isomorphic-fetch@^0.0.32":
+  version "0.0.32"
+  resolved "http://10.12.21.110:61627/@types%2fisomorphic-fetch/-/isomorphic-fetch-0.0.32.tgz#d76f29302aabb38d5caa39b54a96984ffb6bdba3"
+
 "@types/keygrip@*":
   version "1.0.0"
   resolved "http://10.12.21.110:61627/@types%2fkeygrip/-/keygrip-1.0.0.tgz#20bcf84e8962aeca5d1789802b93644262870d28"
@@ -71,13 +75,13 @@
   dependencies:
     "@types/whatwg-fetch" "*"
 
-"@types/whatwg-fetch@*":
+"@types/whatwg-fetch@*", "@types/whatwg-fetch@^0.0.33":
   version "0.0.33"
   resolved "http://10.12.21.110:61627/@types%2fwhatwg-fetch/-/whatwg-fetch-0.0.33.tgz#19c0d2863c8cb2380f21a1c736b79cbf7895bb13"
   dependencies:
     "@types/whatwg-streams" "*"
 
-"@types/whatwg-streams@*":
+"@types/whatwg-streams@*", "@types/whatwg-streams@^0.0.2":
   version "0.0.2"
   resolved "http://10.12.21.110:61627/@types%2fwhatwg-streams/-/whatwg-streams-0.0.2.tgz#58eb11cf9ab33a2b55878d568ad7e9b933e67f7d"
 
@@ -2140,6 +2144,12 @@ empower-core@^0.6.1:
     call-signature "0.0.2"
     core-js "^2.0.0"
 
+encoding@^0.1.11:
+  version "0.1.12"
+  resolved "http://10.12.21.110:61627/encoding/-/encoding-0.1.12.tgz#538b66f3ee62cd1ab51ec323829d1f9480c74beb"
+  dependencies:
+    iconv-lite "~0.4.13"
+
 end-of-stream@1.0.0:
   version "1.0.0"
   resolved "http://10.12.21.110:61627/end-of-stream/-/end-of-stream-1.0.0.tgz#d4596e702734a93e40e9af864319eabd99ff2f0e"
@@ -2992,6 +3002,10 @@ https-browserify@0.0.1:
   version "0.0.1"
   resolved "http://10.12.21.110:61627/https-browserify/-/https-browserify-0.0.1.tgz#3f91365cabe60b77ed0ebba24b454e3e09d95a82"
 
+iconv-lite@~0.4.13:
+  version "0.4.15"
+  resolved "http://10.12.21.110:61627/iconv-lite/-/iconv-lite-0.4.15.tgz#fe265a218ac6a57cfe854927e9d04c19825eddeb"
+
 icss-replace-symbols@^1.0.2:
   version "1.0.2"
   resolved "http://10.12.21.110:61627/icss-replace-symbols/-/icss-replace-symbols-1.0.2.tgz#cb0b6054eb3af6edc9ab1d62d01933e2d4c8bfa5"
@@ -3262,7 +3276,7 @@ is-retry-allowed@^1.0.0:
   version "1.1.0"
   resolved "http://10.12.21.110:61627/is-retry-allowed/-/is-retry-allowed-1.1.0.tgz#11a060568b67339444033d0125a61a20d564fb34"
 
-is-stream@^1.0.0, is-stream@^1.1.0:
+is-stream@^1.0.0, is-stream@^1.0.1, is-stream@^1.1.0:
   version "1.1.0"
   resolved "http://10.12.21.110:61627/is-stream/-/is-stream-1.1.0.tgz#12d4a3dd4e68e0b79ceb8dbc84173ae80d91ca44"
 
@@ -3309,6 +3323,13 @@ isobject@^2.0.0:
   resolved "http://10.12.21.110:61627/isobject/-/isobject-2.1.0.tgz#f065561096a3f1da2ef46272f815c840d87e0c89"
   dependencies:
     isarray "1.0.0"
+
+isomorphic-fetch@^2.2.1:
+  version "2.2.1"
+  resolved "http://10.12.21.110:61627/isomorphic-fetch/-/isomorphic-fetch-2.2.1.tgz#611ae1acf14f5e81f729507472819fe9733558a9"
+  dependencies:
+    node-fetch "^1.0.1"
+    whatwg-fetch ">=0.10.0"
 
 isstream@~0.1.2:
   version "0.1.2"
@@ -3999,6 +4020,13 @@ no-case@^2.2.0:
   dependencies:
     lower-case "^1.1.1"
 
+node-fetch@^1.0.1:
+  version "1.6.3"
+  resolved "http://10.12.21.110:61627/node-fetch/-/node-fetch-1.6.3.tgz#dc234edd6489982d58e8f0db4f695029abcd8c04"
+  dependencies:
+    encoding "^0.1.11"
+    is-stream "^1.0.1"
+
 node-libs-browser@^2.0.0:
   version "2.0.0"
   resolved "http://10.12.21.110:61627/node-libs-browser/-/node-libs-browser-2.0.0.tgz#a3a59ec97024985b46e958379646f96c4b616646"
@@ -4097,6 +4125,10 @@ normalize-url@^1.4.0:
     prepend-http "^1.0.0"
     query-string "^4.1.0"
     sort-keys "^1.0.0"
+
+normalize.css@^5.0.0:
+  version "5.0.0"
+  resolved "http://10.12.21.110:61627/normalize.css/-/normalize.css-5.0.0.tgz#7cec875ce8178a5333c4de80b68ea9c18b9d7c37"
 
 npm-run-path@^2.0.0:
   version "2.0.2"
@@ -4805,6 +4837,12 @@ postcss-modules-values@^1.1.0:
   dependencies:
     icss-replace-symbols "^1.0.2"
     postcss "^5.0.14"
+
+postcss-nested@^1.0.0:
+  version "1.0.0"
+  resolved "http://10.12.21.110:61627/postcss-nested/-/postcss-nested-1.0.0.tgz#d136bd4b576bd5632df142c12b2198a9ccf794df"
+  dependencies:
+    postcss "^5.0.2"
 
 postcss-nesting@^2.0.5:
   version "2.3.1"
@@ -5681,12 +5719,6 @@ strip-json-comments@~2.0.1:
   version "2.0.1"
   resolved "http://10.12.21.110:61627/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
 
-style-loader@^0.13.1:
-  version "0.13.1"
-  resolved "http://10.12.21.110:61627/style-loader/-/style-loader-0.13.1.tgz#468280efbc0473023cd3a6cd56e33b5a1d7fc3a9"
-  dependencies:
-    loader-utils "^0.2.7"
-
 supports-color@^2.0.0:
   version "2.0.0"
   resolved "http://10.12.21.110:61627/supports-color/-/supports-color-2.0.0.tgz#535d045ce6b6363fa40117084629995e9df324c7"
@@ -6236,6 +6268,10 @@ webpack@^2.2.1:
     watchpack "^1.2.0"
     webpack-sources "^0.1.4"
     yargs "^6.0.0"
+
+whatwg-fetch@>=0.10.0:
+  version "2.0.2"
+  resolved "http://10.12.21.110:61627/whatwg-fetch/-/whatwg-fetch-2.0.2.tgz#fe294d1d89e36c5be8b3195057f2e4bc74fc980e"
 
 whet.extend@~0.9.9:
   version "0.9.9"

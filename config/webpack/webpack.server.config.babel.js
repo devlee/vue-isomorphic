@@ -14,6 +14,11 @@ module.exports = Object.assign({}, baseConfig, {
     filename: 'server-bundle.js',
     libraryTarget: 'commonjs2',
   }),
+  resolve: Object.assign({}, baseConfig.resolve, {
+    alias: Object.assign({}, baseConfig.resolve.alias, {
+      fetch: 'isomorphic-fetch',
+    }),
+  }),
   externals: [nodeExternals()],
   plugins: [
     new webpack.DefinePlugin({
