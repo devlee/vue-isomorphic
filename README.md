@@ -1,6 +1,6 @@
 # vue-isomorphic
 
-[![Travis CI Status](https://api.travis-ci.org/devlee/vue-isomorphic.svg?branch=master)](https://api.travis-ci.org/devlee/vue-isomorphic)    [![codecov.io](https://codecov.io/github/devlee/vue-isomorphic/coverage.svg?branch=master)](https://codecov.io/github/devlee/vue-isomorphic?branch=master)
+[![Travis CI Status](https://api.travis-ci.org/devlee/vue-isomorphic.svg?branch=master)](https://travis-ci.org/devlee/vue-isomorphic)    [![codecov.io](https://codecov.io/github/devlee/vue-isomorphic/coverage.svg?branch=master)](https://codecov.io/github/devlee/vue-isomorphic?branch=master)
 
 Vue Isomorphic
 
