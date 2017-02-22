@@ -1,7 +1,11 @@
 import test from 'ava';
 
+import app from './app';
+
 test('foo', (t) => {
-  t.pass();
+  const ab = app.ab();
+
+  t.is(ab, '123');
 });
 
 test('bar', async (t) => {

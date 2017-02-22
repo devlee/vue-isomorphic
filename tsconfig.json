@@ -15,6 +15,7 @@
     "removeComments": true,
     "suppressImplicitAnyIndexErrors": true,
     "allowJs": true,
+    "inlineSourceMap": true,
     "types": [
       "vue-typescript-import-dts",
       "@types/koa",

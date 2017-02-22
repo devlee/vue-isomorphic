@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "outDir": "dist/test",
+    "declaration": false,
+    "noImplicitAny": true,
+    "removeComments": true,
+    "inlineSourceMap": true,
+    "allowJs": true,
+    "lib": ["es5", "dom", "scripthost", "es6"]
+  },
+  "include": [
+    "test/**/*.test.ts"
+  ]
+}
