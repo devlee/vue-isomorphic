@@ -7,6 +7,9 @@
   --fontSize: 16px;
   --interval: 16px;
   --maxWidth: 1200px;
+  --transition: {
+    transition: all .2s ease;
+  }
   --line: {
     display: block;
     width: 100%;
@@ -14,8 +17,10 @@
     font-size: var(--fontSize);
   }
   --link: {
+    @apply --transition;
     &:hover,
     &:focus {
+      @apply --transition;
       color: var(--lightColor);
     }
   }
@@ -42,6 +47,8 @@
   --scrubEffect: {
     position: relative;
     overflow: hidden;
+    background-image: inherit;
+    background-size: inherit;
     background-attachment: fixed;
     &:before {
       content: ' ';

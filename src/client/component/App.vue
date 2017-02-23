@@ -1,7 +1,7 @@
 <template>
   <div id="app" :class="$style.app">
     <header :class="$style.header" :style="bgStyle">
-      <nav :class="$style.nav" :style="bgStyle">
+      <nav :class="$style.nav">
         <ul :class="$style.menu">
           <li>
             <router-link to="/" exact>
@@ -92,7 +92,6 @@
   .nav {
     width: 100%;
     background-color: color(var(--darkColor) alpha(-70%));
-    background-size: cover;
     color: var(--linkColor);
     @apply --line;
     @apply --scrubEffect;
