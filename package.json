@@ -12,12 +12,14 @@
     "build:client": "cross-env NODE_ENV=production webpack --config config/webpack/webpack.client.config.babel.js --progress --hide-modules",
     "build:server": "cross-env NODE_ENV=production webpack --config config/webpack/webpack.server.config.babel.js --progress --hide-modules",
     "build": "rimraf dist && npm run build:client && npm run build:server",
-    "test:clean": "rimraf dist/test && rimraf coverage",
+    "test:clean": "rimraf .nyc_output && rimraf dist/test && rimraf coverage",
     "test:tsc": "tsc -p tsconfig.test.json",
     "test:main": "nyc ava",
     "test:codecov": "codecov",
     "test:ts": "npm run test:clean && npm run test:tsc && npm run test:main",
-    "test": "npm run test:ts && npm run test:codecov"
+    "test:local": "npm run test:ts",
+    "test": "npm run test:ts && npm run test:codecov",
+    "clean": "rimraf .nyc_output && rimraf coverage && rimraf dist && rimraf *.log"
   },
   "ava": {
     "files": [
@@ -50,7 +52,6 @@
     "vuex-router-sync": "^4.1.2"
   },
   "devDependencies": {
-    "@types/isomorphic-fetch": "^0.0.32",
     "@types/koa": "^2.0.37",
     "@types/koa-router": "^7.0.21",
     "@types/lru-cache": "^4.0.0",
@@ -87,7 +88,7 @@
     "raw-loader": "^0.5.1",
     "rimraf": "^2.5.4",
     "sw-precache-webpack-plugin": "^0.9.0",
-    "ts-loader": "^2.0.0",
+    "ts-loader": "^2.0.1",
     "ts-node": "^2.1.0",
     "tslint": "^4.4.2",
     "tslint-eslint-rules": "^3.3.0",

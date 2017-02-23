@@ -10,6 +10,8 @@ Typescript2 + Vue2 + Webpack2 + Koa2
 
 ## feature
 
+[v1.2.0](https://github.com/devlee/vue-isomorphic/blob/master/doc/v1.2.0.md)
+
 [v1.1.0](https://github.com/devlee/vue-isomorphic/blob/master/doc/v1.1.0.md)
 
 [v1.0.0](https://github.com/devlee/vue-isomorphic/blob/master/doc/v1.0.0.md)
