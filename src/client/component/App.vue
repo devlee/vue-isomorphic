@@ -1,7 +1,7 @@
 <template>
   <div id="app" :class="$style.app">
-    <header :class="$style.header">
-      <nav :class="$style.nav">
+    <header :class="$style.header" :style="bgStyle">
+      <nav :class="$style.nav" :style="bgStyle">
         <ul :class="$style.menu">
           <li>
             <router-link to="/" exact>
@@ -28,6 +28,8 @@
 </template>
 
 <script lang="ts">
+  import api from '../../../config/bing/api.ts';
+
   const fetchBingImages = ({ dispatch }: any): Function => {
     const date: Date = new Date();
     const dateFormat: String = `${date.getFullYear()}_${date.getMonth() + 1}_${date.getDate()}`;
@@ -45,24 +47,23 @@
   export default {
     preFetch,
 
-    data(): any {
-      return {
-        bg: '',
-      };
-    },
-
     computed: {
-      bing() {
-        return this.$store.getters.activeBing;
+      bgStyle() {
+        const activeBing = this.$store.getters.activeBing;
+        let result = '';
+
+        if (activeBing && activeBing.images) {
+          if (activeBing.images.length) {
+            result = `${api.cn.domain}${activeBing.images[0].url}`;
+          }
+        }
+
+        return { 'background-image': `url(${result});` };
       },
     },
 
     beforeMount(): void {
       preFetch(this.$store);
-    },
-
-    mounted(): void {
-      console.error(this.bing);
     },
   };
 </script>
@@ -90,13 +91,16 @@
 
   .nav {
     width: 100%;
-    background-color: var(--darkColor);
+    background-color: color(var(--darkColor) alpha(-70%));
+    background-size: cover;
     color: var(--linkColor);
     @apply --line;
+    @apply --scrubEffect;
   }
 
   .menu,
   .option {
+    position: relative;
     @apply --hList;
     a {
       @apply --link;

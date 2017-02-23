@@ -2,6 +2,8 @@ import path from 'path';
 
 import vueLoaderConfig from './vue.loader.config';
 
+import tslintLoaderConfig from './tslint.loader.config';
+
 /**
  * baseDir
  *
@@ -59,6 +61,12 @@ const baseConfig = {
   module: {
     noParse: /es6-promise\.js$/,
     rules: [
+      {
+        test: /\.ts$/,
+        enforce: 'pre',
+        loader: 'tslint-loader',
+        options: tslintLoaderConfig,
+      },
       {
         test: /\.ts$/,
         use: [

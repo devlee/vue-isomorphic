@@ -4,9 +4,13 @@ import * as Vuex from 'vuex';
 
 import api from '../../../config/bing/api';
 
+declare var fetch: any;
+declare var Request: any;
+declare var Headers: any;
+
 Vue.use(Vuex);
 
-const fetchBingImages = (date: String): Promise<Object> => {
+const fetchBingImages = (): Promise<Object> => {
   return (
     fetch(new Request(api.cn.url, {
       credentials: 'include',
@@ -16,7 +20,7 @@ const fetchBingImages = (date: String): Promise<Object> => {
       method: 'GET',
       mode: 'cors',
     }))
-    .then((response: Response) => Promise.resolve(response.json()))
+    .then((response: any) => Promise.resolve(response.json()))
   );
 };
 
@@ -25,23 +29,25 @@ const store = new Vuex.Store({
     FETCH_BING_IMAGES: ({ commit, state }, { date }) => {
       return state.bing[date]
         ? Promise.resolve(state.bing[date])
-        : fetchBingImages(date)
+        : fetchBingImages()
           .then((data: Object) => commit('SET_BING_IMAGES', { date, data }));
     },
   },
   getters: {
-    activeBing(state, getters) {
-      return state.bing;
+    activeBing(state) {
+      return state.bing[state.date];
     },
   },
   mutations: {
     SET_BING_IMAGES: (state, { date, data }) => {
+      Vue.set(state, 'date', date);
       Vue.set(state.bing, date, data);
     },
   },
   state: {
     bing: {
     },
+    date: String(''),
   },
 });
 
